@@ -8,7 +8,7 @@ import { User } from '../models/User';
 })
 export class UserService {
 
-  baseURL:string="http://192.168.187.9:8081/user"
+  baseURL:string="http://localhost:8081/user"
   constructor(private  httpClient:HttpClient) { }
 
   getAllUsers():Observable<any>{
@@ -26,7 +26,8 @@ export class UserService {
   addUser(firstname:string,lastname:string):Observable<any>{
     let body = { firstName: firstname, lastName: lastname };
     let url=this.baseURL + "/add";
-    let headers = new HttpHeaders();
+    let headers = new HttpHeade
+      rs();
     headers.append("Access-Control-Allow-Origin", "*")
     return this.httpClient.post(url,body,{headers})
   }
